@@ -18,7 +18,7 @@ public class Jump : MonoBehaviour
         if (_canJump && rb.velocity == new Vector2(0,0))
         {
             _canJump = false;
-            rb.AddForce(Vector2.up * 7000); //5000
+            rb.AddForce(Vector2.up * 5500); //5000
         }
     }
 
