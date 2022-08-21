@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class PlayerSprite : MonoBehaviour
 {
+    [Header("Sound")]
+    [SerializeField]
+    AudioSource _clearSound;
+
     [Header("Icons")]
     [SerializeField]
     GameObject _nocolor;
@@ -112,6 +116,7 @@ public class PlayerSprite : MonoBehaviour
         SetSprite();
         _fullcolorAnim.SetTrigger("fadein");
         _LaunchAnim.SetTrigger("underline");
+        _clearSound.Play();
     }
 
     private void ShowYellow()
@@ -131,6 +136,7 @@ public class PlayerSprite : MonoBehaviour
         SetSprite();
         _yellowcolorAnim.SetTrigger("fadein");
         _webStrike.SetTrigger("strike");
+        _clearSound.Play();
     }
 
     private void ShowGreen()
@@ -150,6 +156,7 @@ public class PlayerSprite : MonoBehaviour
         SetSprite();
         _greencolorAnim.SetTrigger("fadein");
         _coreteamAnim.SetTrigger("strike");
+        _clearSound.Play();
     }
 
     private void ShowRed()
@@ -169,6 +176,7 @@ public class PlayerSprite : MonoBehaviour
         SetSprite();
         _redColorAnim.SetTrigger("fadein");
         _domainSelectionAnim.SetTrigger("strike");
+        _clearSound.Play();
     }
 
     private void ShowNoColorGDSC()
@@ -188,6 +196,7 @@ public class PlayerSprite : MonoBehaviour
         _isDeltaColor = false;
         _leadSelectionAnim.SetTrigger("strike");
         SetSprite();
+        _clearSound.Play();
     }
 
 

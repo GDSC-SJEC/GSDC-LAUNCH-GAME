@@ -5,6 +5,8 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     bool _canJump = true;
+    [SerializeField]
+    AudioSource _jumpSound;
 
     Rigidbody2D rb;
 
@@ -19,17 +21,22 @@ public class Jump : MonoBehaviour
         {
             _canJump = false;
             rb.AddForce(Vector2.up * 5500); //5000
+            _jumpSound.Play();
         }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Boundary") return;
+
+
         _canJump = true;
         transform.parent = collision.gameObject.transform;
     }
 
     public void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "Boundary") return;
         transform.parent = null;
     }
 }

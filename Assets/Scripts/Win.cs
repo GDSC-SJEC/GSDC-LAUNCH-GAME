@@ -8,9 +8,20 @@ public class Win : MonoBehaviour
     [SerializeField]
     private GameObject win;
 
+    [SerializeField]
+    private GameObject Confetti;
+
+    AudioSource _victorySound;
+
+    private void Awake()
+    {
+        _victorySound = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         win.SetActive(true);
+        Confetti.SetActive(true);
+        _victorySound.Play();
     }
 
     public void OpenNewPage()
